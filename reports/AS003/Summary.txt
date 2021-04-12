@@ -1,0 +1,14 @@
+=== Performance Summary (AS003) ===
+Final portfolio value: $119581.89
+Cumulative returns: 19.58 %
+Anualized Sharpe ratio: 1.03
+Max. drawdown: 4.73 %
+Max. drawdown duration: 446
+
+=== Trades Summary (AS003) ===
+Total trades: 36
+Winning trades: 8
+Losing trades: 27
+Max. consec. loses: 9
+Win rate: 0.22
+Reward/Risk ratio: 4.60

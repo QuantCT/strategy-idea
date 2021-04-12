@@ -1,0 +1,30 @@
+
+* ID: AS002
+
+=============================
+
+* Trade Idea:
+When MACD histogram is positive on trending instruments, tt seems that entering long when close price breaks up the 5-days high, and exiting long when close breaks down the 7-days low, can be profitable.
+
+When MACD histogram is positive and close price breaks up through the 5-days high, It's time to enter long. 
+When MACD histogram becomes negative or close price breaks down through the 7-days low, It's time to exit long. 
+Otherwise, we hold the previous position.
+
+=============================
+
+* Buy conditions
+	b1: MACD histogram is positive.
+	b2: close is greater than highest(5).
+
+=============================
+
+* Sell conditions
+	s1: MACD histogram is negative.
+	s2: close is less than lowest(7).
+
+=============================
+
+* Trade Logic
+	Buy IF 	(b1 AND b2)
+	Sell IF (s1 or s2)
+	

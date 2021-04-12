@@ -1,0 +1,34 @@
+// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © QuantCT
+
+//@version=4
+strategy("AS003 Idea",
+         shorttitle="AS003", 
+         overlay=true,
+         pyramiding=0,     
+         default_qty_type=strategy.fixed, 
+         default_qty_value=1.0, 
+         initial_capital=100000,           
+         commission_type=strategy.commission.percent, 
+         commission_value=0.0)
+
+ema1_period = input(title="EMA1 Period", defval=10)
+ema2_period = input(title="EMA2 Period", defval=20)
+ema3_period = input(title="EMA3 Period", defval=30)
+
+ema1 = ema(hlc3, ema1_period)
+ema2 = ema(hlc3, ema2_period)
+ema3 = ema(hlc3, ema3_period)
+    
+start_date = timestamp(syminfo.timezone, 2018, 1, 30, 0, 0)
+end_date = timestamp(syminfo.timezone, 2020, 12, 30, 23, 59)
+in_date_range = time >= start_date and time <= end_date
+
+if (in_date_range)
+    buy_condition = (rising(ema1, 1) and rising(ema2, 1) and rising(ema3, 1))
+    sell_condition = (not rising(ema1, 1) and not rising(ema2, 1) and not rising(ema3, 1))
+
+    strategy.entry("Buy", strategy.long, when=buy_condition)
+    strategy.close("Buy", when=sell_condition)
+
+

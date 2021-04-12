@@ -1,0 +1,34 @@
+
+* ID: AS003
+
+=============================
+
+* Trade Idea:
+PMA ( Pivot Moving average) is a set of 3 EMAs on HLC3 data.
+
+When all PMAs are rising, market is considered bullish. 
+When all PMAs are falling, market is considered bearish. 
+Otherwise, market is considered ranging.
+
+It seems that PMAs of 10, 20, 30 on daily chart has predictive power.
+
+=============================
+
+* Buy conditions
+	b1: PMA(10) is rising.
+	b2: PMA(20) is rising.
+    b3: PMA(30) is rising.
+
+=============================
+
+* Sell conditions
+	s1: PMA(10) is falling.
+	s2: PMA(20) is falling.
+    s3: PMA(30) is falling.
+
+=============================
+
+* Trade Logic
+	Buy IF 	(b1 AND b2 AND b3)
+	Sell IF (s1 AND s2 AND s3)
+	

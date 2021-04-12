@@ -1,0 +1,30 @@
+// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © QuantCT
+
+//@version=4
+strategy("AS001 Idea",
+         shorttitle="AS001", 
+         overlay=true,
+         pyramiding=0,     
+         default_qty_type=strategy.fixed, 
+         default_qty_value=1.0, 
+         initial_capital=100000,           
+         commission_type=strategy.commission.percent, 
+         commission_value=0.0)
+
+slow_period = input(title="Slow MOM Period", defval=10)
+fast_period = input(title="Fast MOM Period", defval=5)
+
+start_date = timestamp(syminfo.timezone, 2018, 1, 10, 0, 0)
+end_date = timestamp(syminfo.timezone, 2020, 12, 30, 23, 59)
+in_date_range = time >= start_date and time <= end_date
+
+if (in_date_range)
+    mom_slow = mom(close, slow_period)
+    mom_fast = mom(close, fast_period)
+    
+    buy_condition = (mom_slow > 0 and mom_fast > 0)
+    sell_condition = (mom_slow < 0 or mom_fast < 0)
+    
+    strategy.entry("Buy", strategy.long, when=buy_condition)
+    strategy.close("Buy", when=sell_condition)
