@@ -9,7 +9,7 @@ It seems that on trending instruments, when the 10-days and 5-days momentum indi
 ## Long/Short logic
 * When both momentum indicators are positive, asset is considered rising (bullish), and we can go _Long_.
 * When both momentum indicators are negative, asset is considered falling (bearish) and we can go _Short_.
-Otherwise, asset is considered ranging and the plotted indicator becomes orange. 
+* Otherwise, asset is considered ranging. 
 
 # Formulation
 
